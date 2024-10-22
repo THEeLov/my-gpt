@@ -5,13 +5,14 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Label } from "@radix-ui/react-label";
+import { Link } from "react-router-dom";
 
 const SignInForm = () => {
   const form = useForm<SignInSchemaType>({
@@ -55,6 +56,8 @@ const SignInForm = () => {
         <Button className="w-full" variant="secondary">
           Submit
         </Button>
+
+        <p className="text-white">Don't have an accout ? <Link to="/signup" className="underline">Sign up</Link></p>
       </form>
     </Form>
   );

@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Headline = () => {
   return (
     <div className="relative flex flex-col text-center font-size text-8xl mb-8 select-none">
