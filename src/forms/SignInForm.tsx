@@ -11,7 +11,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Label } from "@radix-ui/react-label";
 import { Link } from "react-router-dom";
 
 const SignInForm = () => {
@@ -33,7 +32,7 @@ const SignInForm = () => {
             <FormItem>
               <FormLabel className="text-background">Email</FormLabel>
               <FormControl>
-                <Input type="email" placeholder="Email" {...field} className="text-background"/>
+                <Input type="email" placeholder="Email" {...field} className="text-background" autoComplete="off"/>
               </FormControl>
               <FormMessage />
             </FormItem>
