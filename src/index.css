@@ -64,3 +64,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+.custom-gradient {
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+  background: radial-gradient(circle at center bottom, #fed300, rgba(255, 255, 255, 0) 70%);
+  width: 1500px;
+  height: 800px;
+  bottom: -600px;
+  z-index: 0;
+}
+
+@media (max-height: 700px) {
+  .light-image {
+    display: none;
+  }
+}
