@@ -1,5 +1,6 @@
 import SigningLayout from "@/layouts/SigningLayout";
 import SignIn from "@/pages/SignIn";
+import SignUp from "@/pages/SignUp";
 import React from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 
@@ -17,8 +18,11 @@ export const router = createBrowserRouter([
       },
       {
         path:"/signin",
-        index: true,
         Component: SignIn
+      },
+      {
+        path: "/signup",
+        Component: SignUp
       }
     ]
   }
