@@ -101,7 +101,7 @@ const SignUpForm = () => {
           )}
         />
 
-        <Button className="w-full" variant="secondary">
+        <Button className="w-full" variant="secondary" disabled={form.formState.isSubmitting}>
           SIGN UP
         </Button>
 

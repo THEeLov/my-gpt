@@ -52,7 +52,7 @@ const SignInForm = () => {
           )}
         />
 
-        <Button className="w-full" variant="secondary">
+        <Button className="w-full" variant="secondary" disabled={form.formState.isSubmitting}>
           SIGN IN
         </Button>
 

@@ -1,4 +1,3 @@
-import Headline from "@/components/app/Headline"
 import SignUpForm from "@/forms/SignUpForm"
 
 const SignUp = () => {
