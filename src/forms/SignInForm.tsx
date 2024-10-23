@@ -53,7 +53,7 @@ const SignInForm = () => {
         />
 
         <Button className="w-full" variant="secondary">
-          Submit
+          SIGN IN
         </Button>
 
         <p className="text-white">Don't have an accout ? <Link to="/signup" className="underline">Sign up</Link></p>

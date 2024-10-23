@@ -102,7 +102,7 @@ const SignUpForm = () => {
         />
 
         <Button className="w-full" variant="secondary">
-          Submit
+          SIGN UP
         </Button>
 
         <p className="text-white">

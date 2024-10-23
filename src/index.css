@@ -82,3 +82,7 @@
     display: none;
   }
 }
+
+.glow {
+  box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.6);
+}
