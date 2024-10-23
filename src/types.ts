@@ -6,11 +6,17 @@ export type SignInData = {
 export type Token = Omit<SignInData, "user">;
 
 export type User = {
-  _id: string;
+  id: string;
   username: string;
   email: string;
-  password: string;
-  profilePic: string;
-  createdAt: Date;
-  updatedAt: Date;
 };
+
+export type SignInUser = {
+  email: string;
+  password: string;
+}
+
+export type SignUpUser = SignInUser & {
+  username: string;
+  confirmPassword: string;
+}

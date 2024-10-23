@@ -12,14 +12,38 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import useAuthData from "@/hooks/useAuthData";
+import { signUpUser } from "@/api/authApi";
+import { useToast } from "@/hooks/use-toast";
+import { isAxiosError } from "axios";
 
 const SignUpForm = () => {
+  const { signUp } = useAuthData();
+  const { toast } = useToast();
+
   const form = useForm<SignUpSchemaType>({
     resolver: zodResolver(signUpSchema),
   });
 
-  const onSubmit = (data: SignUpSchemaType) => {
-    console.log(data);
+  const onSubmit = async (data: SignUpSchemaType) => {
+    try {
+      const result = await signUpUser(data);
+      signUp(result);
+      toast({
+        title: "Hello user",
+      });
+    } catch (error) {
+      if (isAxiosError(error)) {
+        const statusCode = error.response?.status;
+        console.log();
+        form.setError("root", {
+          message:
+            statusCode === 409
+              ? "Email is already taken"
+              : "Internal server error",
+        });
+      }
+    }
   };
 
   return (
@@ -87,7 +111,9 @@ const SignUpForm = () => {
           name="confirmPassword"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-background">Confirm Password</FormLabel>
+              <FormLabel className="text-background">
+                Confirm Password
+              </FormLabel>
               <FormControl>
                 <Input
                   placeholder="Confirm Password"
@@ -101,7 +127,18 @@ const SignUpForm = () => {
           )}
         />
 
-        <Button className="w-full" variant="secondary" disabled={form.formState.isSubmitting}>
+        {form.formState.errors.root && (
+          <p className="text-yellow-400 text-center">
+            {form.formState.errors.root.message}
+          </p>
+        )}
+
+        <Button
+          className="w-full"
+          variant="secondary"
+          disabled={form.formState.isSubmitting}
+          onClick={() => form.handleSubmit(onSubmit)}
+        >
           SIGN UP
         </Button>
 
