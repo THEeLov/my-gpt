@@ -1,27 +1,37 @@
+import MainLayout from "@/layouts/MainLayout";
 import SigningLayout from "@/layouts/SigningLayout";
+import Conversations from "@/pages/Conversations";
 import SignIn from "@/pages/SignIn";
 import SignUp from "@/pages/SignUp";
-import React from "react";
-import { createBrowserRouter, Navigate } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 
 export const router = createBrowserRouter([
   {
     path: "/",
+    Component: MainLayout,
+    children: [
+      {
+        index: true,
+        Component: Conversations
+      }
+    ]
+  },
+  {
+    path: "/signin",
     Component: SigningLayout,
     children: [
       {
-        path: "/",
-        element: React.createElement(Navigate, {
-          to: "/signin",
-          replace: true,
-        }),
-      },
-      {
-        path:"/signin",
+        index: true,
         Component: SignIn
-      },
+      }
+    ]
+  },
+  {
+    path: "/signup",
+    Component: SigningLayout,
+    children: [
       {
-        path: "/signup",
+        index: true,
         Component: SignUp
       }
     ]

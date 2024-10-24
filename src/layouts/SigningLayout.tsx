@@ -6,7 +6,7 @@ const SigningLayout = () => {
   const { user } = useAuthData();
 
   if (user) {
-    return <Navigate to="/conversations" />;
+    return <Navigate to="/" />;
   }
 
   return (

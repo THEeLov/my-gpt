@@ -33,8 +33,6 @@ const SignInForm = () => {
       toast({
         title: "Sign in successfull",
       });
-      console.log("Helo");
-      // navigate("/chats");
     } catch (error) {
       if (isAxiosError(error)) {
         const statusCode = error.response?.status;
