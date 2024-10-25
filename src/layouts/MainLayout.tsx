@@ -15,7 +15,7 @@ const MainLayout = () => {
       <nav className="w-full h-20 bg-foreground border-b-2 border-b-yellow-300 flex justify-between items-center">
         <Navbar />
       </nav>
-      <main className="flex-grow w-full bg-foreground">
+      <main className="flex-grow w-full h-full bg-foreground flex">
         <Outlet />
       </main>
       <footer className="w-full bg-foreground h-20 border-t-2 border-t-yellow-300">
