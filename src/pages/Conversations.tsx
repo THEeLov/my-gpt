@@ -1,10 +1,12 @@
+import ConversationsSidebar from "@/components/app/conversations/ConversationsSidebar"
+
 const Conversations = () => {
   return (
     <div className="w-full flex">
       
       {/* User's list of conversations */}
-      <div className="w-96 border-r-2 border-r-yellow-300">
-        
+      <div className="w-96 border-r-2 border-r-yellow-300 truncate">
+        <ConversationsSidebar />
       </div>
 
       {/* User's current opened conversation */}
