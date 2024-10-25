@@ -1,6 +1,5 @@
 import useAuthData from "@/hooks/useAuthData";
 import { Button } from "../ui/button";
-import { sign } from "crypto";
 
 const Navbar = () => {
   const { signOut } = useAuthData();
