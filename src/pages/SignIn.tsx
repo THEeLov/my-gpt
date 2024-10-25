@@ -1,4 +1,4 @@
-import Headline from "@/components/app/Headline";
+import Headline from "@/components/app/common/Headline";
 import SignInForm from "@/forms/SignInForm";
 
 const SignIn = () => {

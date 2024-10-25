@@ -1,5 +1,5 @@
-import Footer from "@/components/app/Footer";
-import Navbar from "@/components/app/Navbar";
+import Footer from "@/components/app/common/Footer";
+import Navbar from "@/components/app/common/Navbar";
 import useAuthData from "@/hooks/useAuthData";
 import { Navigate, Outlet } from "react-router-dom";
 

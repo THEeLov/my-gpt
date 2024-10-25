@@ -1,5 +1,5 @@
 import useAuthData from "@/hooks/useAuthData";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 
 const Navbar = () => {
   const { signOut } = useAuthData();
