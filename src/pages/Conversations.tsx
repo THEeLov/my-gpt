@@ -12,7 +12,7 @@ const Conversations = () => {
       </div>
 
       {/* User's current opened conversation */}
-      <div className="flex flex-col text-white p-4 justify-between w-full">
+      <div className="flex flex-col text-white p-4 justify-between w-full items-center">
         <ConversationMessages />
         <MessageForm />
       </div>
