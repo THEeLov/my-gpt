@@ -1,4 +1,6 @@
+import ConversationMessages from "@/components/app/conversations/ConversationMessages"
 import ConversationsSidebar from "@/components/app/conversations/ConversationsSidebar"
+import MessageForm from "@/forms/MessageForm"
 
 const Conversations = () => {
   return (
@@ -10,8 +12,9 @@ const Conversations = () => {
       </div>
 
       {/* User's current opened conversation */}
-      <div>
-
+      <div className="flex flex-col text-white p-4 justify-between w-full">
+        <ConversationMessages />
+        <MessageForm />
       </div>
 
     </div>
