@@ -12,7 +12,7 @@ const MainLayout = () => {
 
   return (
     <div className="min-h-screen max-h-screen flex flex-col items-center">
-      <nav className="w-full h-20 bg-foreground border-b-2 border-b-yellow-300 flex justify-between items-center">
+      <nav className="w-full h-20 bg-foreground flex justify-between items-center border-b-2 border-b-yellow-300">
         <Navbar />
       </nav>
       <main className="flex-grow w-full h-full bg-foreground flex">
