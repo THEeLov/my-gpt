@@ -12,13 +12,13 @@ const MainLayout = () => {
 
   return (
     <div className="min-h-screen max-h-screen flex flex-col items-center">
-      <nav className="w-full h-20 bg-foreground flex justify-between items-center border-b-2 border-b-yellow-300">
+      <nav className="w-full h-20 flex justify-between items-center navbarfooterBackground">
         <Navbar />
       </nav>
-      <main className="flex-grow w-full h-full bg-foreground flex">
+      <main className="flex-grow w-full h-full flex bg-foreground">
         <Outlet />
       </main>
-      <footer className="w-full bg-foreground h-20 border-t-2 border-t-yellow-300">
+      <footer className="w-full h-20 bg-transparent navbarfooterBackground">
         <Footer />
       </footer>
     </div>

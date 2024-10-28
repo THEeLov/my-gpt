@@ -14,12 +14,10 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import useAuthData from "@/hooks/useAuthData";
 import { signUpUser } from "@/api/authApi";
-import { useToast } from "@/hooks/use-toast";
 import { isAxiosError } from "axios";
 
 const SignUpForm = () => {
   const { signUp } = useAuthData();
-  const { toast } = useToast();
 
   const form = useForm<SignUpSchemaType>({
     resolver: zodResolver(signUpSchema),
@@ -35,9 +33,6 @@ const SignUpForm = () => {
     try {
       const result = await signUpUser(data);
       signUp(result);
-      toast({
-        title: "Hello user",
-      });
     } catch (error) {
       if (isAxiosError(error)) {
         const statusCode = error.response?.status;

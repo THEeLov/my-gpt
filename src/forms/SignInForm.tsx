@@ -15,12 +15,10 @@ import { Link } from "react-router-dom";
 import { useSignIn } from "@/hooks/useAuth";
 import useAuthData from "@/hooks/useAuthData";
 import { isAxiosError } from "axios";
-import { useToast } from "@/hooks/use-toast";
 
 const SignInForm = () => {
   const { mutateAsync: signInUser } = useSignIn();
   const { signIn } = useAuthData();
-  const { toast } = useToast();
 
   const form = useForm<SignInSchemaType>({
     resolver: zodResolver(signInSchema),
@@ -34,9 +32,6 @@ const SignInForm = () => {
     try {
       const response = await signInUser(data);
       signIn(response);
-      toast({
-        title: "Sign in successfull",
-      });
     } catch (error) {
       if (isAxiosError(error)) {
         const statusCode = error.response?.status;
