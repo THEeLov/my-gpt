@@ -24,6 +24,10 @@ const SignInForm = () => {
 
   const form = useForm<SignInSchemaType>({
     resolver: zodResolver(signInSchema),
+    defaultValues: {
+      email: "",
+      password: ""
+    }
   });
 
   const onSubmit = async (data: SignInSchemaType) => {

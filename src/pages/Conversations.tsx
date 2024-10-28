@@ -7,7 +7,7 @@ const Conversations = () => {
     <div className="w-full flex">
       
       {/* User's list of conversations */}
-      <div className="w-96 truncate conversationSidebar">
+      <div className="w-96 truncate conversationSidebar border-l-2 border-r-2 border-r-yellow-300 border-l-yellow-300">
         <ConversationsSidebar />
       </div>
 

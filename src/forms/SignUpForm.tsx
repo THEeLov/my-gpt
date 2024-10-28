@@ -23,6 +23,12 @@ const SignUpForm = () => {
 
   const form = useForm<SignUpSchemaType>({
     resolver: zodResolver(signUpSchema),
+    defaultValues: {
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: ""
+    }
   });
 
   const onSubmit = async (data: SignUpSchemaType) => {
