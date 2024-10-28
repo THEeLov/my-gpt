@@ -106,7 +106,7 @@
 
 .navbarfooterBackground {
   background: rgb(9,9,11);
-  background: radial-gradient(circle, rgba(9,9,11,1) 19%, rgba(22,17,8,1) 49%, rgba(65,41,0,1) 100%, rgba(52,33,0,1) 100%);
+  background: radial-gradient(circle, rgba(9,9,11,1) 21%, rgba(255,158,5,1) 100%);
 }
 
 .conversationSidebar {
