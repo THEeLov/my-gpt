@@ -13,14 +13,14 @@ const MainLayout = () => {
 
   return (
     <div className="min-h-screen max-h-screen flex flex-col items-center">
-      <nav className="w-full h-20 flex justify-between items-center navbarfooterBackground">
-        <Navbar />
-      </nav>
-      <main className="flex-grow w-full flex bg-foreground">
-        <SelectedConversationContextProvider>
+      <SelectedConversationContextProvider>
+        <nav className="w-full h-20 flex justify-between items-center navbarfooterBackground">
+          <Navbar />
+        </nav>
+        <main className="flex-grow w-full flex bg-foreground">
           <Outlet />
-        </SelectedConversationContextProvider>
-      </main>
+        </main>
+      </SelectedConversationContextProvider>
       <footer className="w-full h-20 bg-transparent navbarfooterBackground">
         <Footer />
       </footer>

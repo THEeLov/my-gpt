@@ -1,12 +1,14 @@
 import useAuthData from "@/hooks/useAuthData";
 import { Button } from "../../ui/button";
+import { useConverstationContext } from "@/hooks/useConversationContext";
 
 const Navbar = () => {
   const { signOut } = useAuthData();
+  const { handleConversationSwap } = useConverstationContext();
 
   return (
     <>
-      <div className="flex flex-col text-center font-size text-5xl select-none flex-grow">
+      <div className="flex flex-col text-center font-size text-5xl select-none flex-grow cursor-pointer" onClick={() => handleConversationSwap(null)}>
         <p className="text-background font-black m-0 text-xl">MY</p>
         <p className="text-background font-black m-0 -mt-3">GPT</p>
       </div>

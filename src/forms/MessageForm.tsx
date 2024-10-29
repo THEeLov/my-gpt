@@ -27,11 +27,9 @@ const MessageForm = () => {
   console.log(openConversationId);
   const onSubmit = async (data: MessageSchemaType) => {
     try {
-      const result =
-        openConversationId === null
-          ? await sendMessageToNewConversation(data)
-          : await sendMessageToConversation(data);
-      alert("DOne")
+      openConversationId === null
+        ? await sendMessageToNewConversation(data)
+        : await sendMessageToConversation(data);
     } catch (error) {
       console.log(error);
     }
