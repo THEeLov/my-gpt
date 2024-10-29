@@ -3,7 +3,6 @@ import { useConverstationContext } from "@/hooks/useConversationContext";
 import { useUserConversationMessages } from "@/hooks/useConversations";
 import { Spinner } from "@/components/ui/spinner";
 import ReactMarkdown from "react-markdown";
-import remarkGfm from 'remark-gfm';
 
 const ConversationMessages = () => {
   const { user } = useAuthData();
@@ -29,15 +28,17 @@ const ConversationMessages = () => {
   }
 
   return (
-    <div className="">
-      {openedConversation?.messages.map((message) => (
+    <div className="flex flex-col gap-10">
+      {openedConversation!.messages.map((message) => (
         <div
           key={message.id}
-          className="p-4 bg-gray-800 text-white rounded-md w-full max-w-md"
+          className={`p-4 rounded-md w-full max-w-lg mb-2 ${
+            message.user.id === user!.id ? 'userMessage self-end' : 'chatMessage self-start'
+          }`}
         >
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          <ReactMarkdown>
             {message.message}
-          </ReactMarkdown >
+          </ReactMarkdown>
           <span className="text-sm text-gray-400">
             {new Date(message.createdAt).toLocaleString()}
           </span>

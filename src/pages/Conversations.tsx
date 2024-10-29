@@ -11,7 +11,7 @@ const Conversations = () => {
       </div>
 
       {/* User's current opened conversation */}
-      <div className="flex flex-col flex-grow text-white p-4 justify-between items-center">
+      <div className="flex flex-col flex-grow text-white p-4 justify-between items-center gap-5">
         {/* Scrollable messages container */}
         <div className="overflow-auto flex-grow w-3/4 h-2">
           <ConversationMessages />
