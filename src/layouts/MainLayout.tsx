@@ -16,7 +16,7 @@ const MainLayout = () => {
       <nav className="w-full h-20 flex justify-between items-center navbarfooterBackground">
         <Navbar />
       </nav>
-      <main className="flex-grow w-full h-full flex bg-foreground">
+      <main className="flex-grow w-full flex bg-foreground">
         <SelectedConversationContextProvider>
           <Outlet />
         </SelectedConversationContextProvider>

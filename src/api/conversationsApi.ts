@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Conversation } from "../types";
+import { Conversation, ConversationWithMessages } from "../types";
 import { attachAuthHeader } from "../utils/attackAuthHeader";
 
 const axiosInstance = axios.create({
@@ -16,8 +16,11 @@ export const getUserConversations = async (
 };
 
 export const getConversationMessages = async (
-  conversationId: string,
-): Promise<Conversation> => {
+  conversationId: string | null,
+): Promise<ConversationWithMessages | null> => {
+  if (conversationId === null) {
+    return null;
+  }
   const resp = await axiosInstance.get(`/${conversationId}`);
   return resp.data;
 };

@@ -26,3 +26,17 @@ export type Conversation = {
   name: string;
   createdAt: Date;
 }
+
+export type Message = {
+  id: string;
+  message: string;
+  createdAt: Date;
+};
+
+export type MessageWithUser = Message & {
+  user: User;
+}
+
+export type ConversationWithMessages = Conversation & {
+  messages: MessageWithUser[]
+}
