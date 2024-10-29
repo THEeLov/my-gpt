@@ -20,3 +20,9 @@ export type SignUpUser = SignInUser & {
   username: string;
   confirmPassword: string;
 }
+
+export type Conversation = {
+  id: string;
+  name: string;
+  createdAt: Date;
+}
