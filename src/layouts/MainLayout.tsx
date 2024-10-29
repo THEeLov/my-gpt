@@ -1,5 +1,6 @@
 import Footer from "@/components/app/common/Footer";
 import Navbar from "@/components/app/common/Navbar";
+import { SelectedConversationContextProvider } from "@/contexts/SelectedConversationContext";
 import useAuthData from "@/hooks/useAuthData";
 import { Navigate, Outlet } from "react-router-dom";
 
@@ -16,7 +17,9 @@ const MainLayout = () => {
         <Navbar />
       </nav>
       <main className="flex-grow w-full h-full flex bg-foreground">
-        <Outlet />
+        <SelectedConversationContextProvider>
+          <Outlet />
+        </SelectedConversationContextProvider>
       </main>
       <footer className="w-full h-20 bg-transparent navbarfooterBackground">
         <Footer />

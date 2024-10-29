@@ -2,7 +2,7 @@ import React, { createContext, useState } from "react";
 
   export interface SelectedConversationContextType {
     openConversationId: string | null;
-    handleConversationSwap: (conversationId: string, receiverId: string) => void
+    handleConversationSwap: (conversationId: string) => void
   }
 
   export const SelectedConversationContext = createContext<SelectedConversationContextType | undefined>(
