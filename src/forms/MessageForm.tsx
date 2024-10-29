@@ -1,25 +1,40 @@
 import { Button } from "@/components/ui/button";
-import {
-  FormField,
-  Form,
-  FormItem,
-  FormControl,
-} from "@/components/ui/form";
+import { FormField, Form, FormItem, FormControl } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useConverstationContext } from "@/hooks/useConversationContext";
+import {
+  useSendMessageToConversation,
+  useSendMessageToNewMessage,
+} from "@/hooks/useMessages";
 import { messageSchema, MessageSchemaType } from "@/validation/zodSchemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
 const MessageForm = () => {
+  const { openConversationId } = useConverstationContext();
+  const { mutateAsync: sendMessageToConversation } =
+    useSendMessageToConversation(openConversationId!);
+  const { mutateAsync: sendMessageToNewConversation } =
+    useSendMessageToNewMessage();
+
   const form = useForm<MessageSchemaType>({
     resolver: zodResolver(messageSchema),
     defaultValues: {
-      message: ""
-    }
+      message: "",
+    },
   });
 
+  console.log(openConversationId);
   const onSubmit = async (data: MessageSchemaType) => {
-    console.log(data);
+    try {
+      const result =
+        openConversationId === null
+          ? await sendMessageToNewConversation(data)
+          : await sendMessageToConversation(data);
+      alert("DOne")
+    } catch (error) {
+      console.log(error);
+    }
     form.reset();
   };
 
