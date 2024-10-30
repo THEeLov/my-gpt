@@ -40,3 +40,5 @@ export type MessageWithUser = Message & {
 export type ConversationWithMessages = Conversation & {
   messages: MessageWithUser[]
 }
+
+export type GroupedConversations = Map<string, Conversation[]>;
