@@ -1,12 +1,12 @@
 import useAuthData from "@/hooks/useAuthData";
-import { useConverstationContext } from "@/hooks/useConversationContext";
 import { useUserConversationMessages } from "@/hooks/useConversations";
 import { Spinner } from "@/components/ui/spinner";
 import ReactMarkdown from "react-markdown";
+import { useParams } from 'react-router-dom';
 
 const ConversationMessages = () => {
   const { user } = useAuthData();
-  const { openConversationId } = useConverstationContext();
+  const {conversationId: openConversationId} = useParams();
 
   const { data: openedConversation, isLoading } =
     useUserConversationMessages(openConversationId);
@@ -14,7 +14,7 @@ const ConversationMessages = () => {
   console.log(openedConversation);
 
   // When theres no conversation opened just welcome user
-  if (openConversationId === null) {
+  if (openConversationId === undefined) {
     return (
       <div className="flex-grow w-full flex justify-center items-center flex-col gap-4 text-5xl select-none fade-in-animation h-full">
         <h1 className="font-bold">Hi {user?.username} 👋</h1>

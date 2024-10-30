@@ -12,9 +12,13 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: Conversations
-      }
-    ]
+        Component: Conversations,
+      },
+      {
+        path: ":conversationId",
+        Component: Conversations,
+      },
+    ],
   },
   {
     path: "/signin",
@@ -22,9 +26,9 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: SignIn
-      }
-    ]
+        Component: SignIn,
+      },
+    ],
   },
   {
     path: "/signup",
@@ -32,8 +36,8 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: SignUp
-      }
-    ]
-  }
-])
+        Component: SignUp,
+      },
+    ],
+  },
+]);

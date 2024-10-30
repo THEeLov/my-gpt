@@ -8,7 +8,7 @@ export const useUserConversations = (userId: string) => {
   })
 }
 
-export const useUserConversationMessages = (conversationId: string | null) => {
+export const useUserConversationMessages = (conversationId: string | undefined) => {
   return useQuery({
     queryKey: ["conversationMessages", conversationId],
     queryFn: () => getConversationMessages(conversationId)

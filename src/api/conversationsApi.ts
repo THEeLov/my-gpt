@@ -16,9 +16,9 @@ export const getUserConversations = async (
 };
 
 export const getConversationMessages = async (
-  conversationId: string | null,
+  conversationId: string | undefined,
 ): Promise<ConversationWithMessages | null> => {
-  if (conversationId === null) {
+  if (conversationId === undefined) {
     return null;
   }
   const resp = await axiosInstance.get(`/${conversationId}`);

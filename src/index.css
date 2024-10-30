@@ -95,18 +95,21 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
-    margin-right: 150px;
+    padding-right: 25px;
   }
   to {
     opacity: 1;
-    margin-right: 0px;
+    padding-right: 0px;
   }
 }
 
-
 .navbarfooterBackground {
-  background: rgb(9,9,11);
-  background: radial-gradient(circle, rgba(9,9,11,1) 21%, rgba(255,158,5,1) 100%);
+  background: rgb(9, 9, 11);
+  background: radial-gradient(
+    circle,
+    rgba(9, 9, 11, 1) 21%,
+    rgba(255, 158, 5, 1) 100%
+  );
 }
 
 .conversationSidebar {
@@ -118,7 +121,7 @@
 }
 
 .conversationCard:hover {
-  background-color: rgb(20, 20, 20);
+  background-color: rgb(61, 61, 61);
 }
 
 .userMessage {
@@ -126,5 +129,9 @@
 }
 
 .chatMessage {
-  background-color: rgb(26, 26, 26);
+  background-color: transparent;
+}
+
+.activeConversation {
+  background-color: rgb(61, 61, 61);
 }
