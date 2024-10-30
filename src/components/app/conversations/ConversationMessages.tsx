@@ -3,6 +3,7 @@ import { useUserConversationMessages } from "@/hooks/useConversations";
 import { Spinner } from "@/components/ui/spinner";
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
+import { useEffect, useRef } from "react";
 
 const ConversationMessages = () => {
   const { user } = useAuthData();
@@ -11,7 +12,13 @@ const ConversationMessages = () => {
   const { data: openedConversation, isLoading } =
     useUserConversationMessages(openConversationId);
 
-  console.log(openedConversation);
+  const lastMessageRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (lastMessageRef.current) {
+      lastMessageRef.current.scrollIntoView({block: "end"});
+    }
+  }, [openedConversation]);
 
   // When theres no conversation opened just welcome user
   if (openConversationId === undefined) {
@@ -29,18 +36,21 @@ const ConversationMessages = () => {
 
   return (
     <div className="flex flex-col gap-10">
-      {openedConversation!.messages.map((message) => (
+      {openedConversation!.messages.map((message, index) => (
         <div
           key={message.id}
+          ref={
+            index === openedConversation!.messages.length - 1
+              ? lastMessageRef
+              : null
+          }
           className={`p-4 rounded-md max-w-lg mb-2 ${
             message.user.id === user!.id
               ? "userMessage self-end"
               : "chatMessage self-start"
           }`}
         >
-          <ReactMarkdown>
-            {message.message}
-          </ReactMarkdown>
+          <ReactMarkdown>{message.message}</ReactMarkdown>
           <span className="text-sm text-gray-400">
             {new Date(message.createdAt).toLocaleString()}
           </span>
