@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { FormField, Form, FormItem, FormControl } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useConverstationContext } from "@/hooks/useConversationContext";
 import {
   useSendMessageToConversation,
   useSendMessageToNewMessage,
@@ -9,12 +8,14 @@ import {
 import { messageSchema, MessageSchemaType } from "@/validation/zodSchemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
 
 const MessageForm = () => {
-  const { openConversationId } = useConverstationContext();
-  const { mutateAsync: sendMessageToConversation } =
+  const { conversationId: openConversationId } = useParams();
+
+  const { mutateAsync: sendMessageToConversation, isPending } =
     useSendMessageToConversation(openConversationId!);
-  const { mutateAsync: sendMessageToNewConversation } =
+  const { mutateAsync: sendMessageToNewConversation, isPending: pendig } =
     useSendMessageToNewMessage();
 
   const form = useForm<MessageSchemaType>({
@@ -24,10 +25,9 @@ const MessageForm = () => {
     },
   });
 
-  console.log(openConversationId);
   const onSubmit = async (data: MessageSchemaType) => {
     try {
-      openConversationId === null
+      openConversationId === undefined
         ? await sendMessageToNewConversation(data)
         : await sendMessageToConversation(data);
     } catch (error) {
@@ -38,6 +38,8 @@ const MessageForm = () => {
 
   return (
     <Form {...form}>
+      {(isPending || pendig) && <div className="text-white">Waiting for answer ...</div>}
+
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex w-3/4 items-center justify-center space-x-2"
