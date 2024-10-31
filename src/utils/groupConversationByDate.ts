@@ -4,7 +4,7 @@ import { format, isToday, isYesterday } from "date-fns";
 export function groupConversationsByDate(
   conversations: Conversation[]
 ): GroupedConversations {
-  const grouped: GroupedConversations = new Map<string, Conversation[]>(); // Create a new Map
+  const grouped: GroupedConversations = new Map<string, Conversation[]>();
 
   conversations.forEach((conversation) => {
     const date = new Date(conversation.createdAt);
@@ -23,5 +23,5 @@ export function groupConversationsByDate(
     grouped.get(label)?.push(conversation);
   });
 
-  return grouped; // Return the populated Map
+  return grouped;
 }

@@ -32,7 +32,7 @@ const MessageForm = () => {
       const result = openConversationId === undefined
         ? await sendMessageToNewConversation(data)
         : await sendMessageToConversation(data);
-      navigate(`/${result.id}`)
+      navigate(`/${result}`)
     } catch (error) {
       console.log(error);
     }

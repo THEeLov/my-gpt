@@ -1,5 +1,4 @@
 import axios from "axios";
-import { ConversationWithMessages } from "../types";
 import { attachAuthHeader } from "../utils/attackAuthHeader";
 import { MessageSchemaType } from "@/validation/zodSchemas";
 
@@ -12,14 +11,14 @@ attachAuthHeader(axiosInstance);
 export const postMessegeToConversation = async (
   conversationId: string,
   message: MessageSchemaType
-): Promise<ConversationWithMessages> => {
+): Promise<string> => {
   const resp = await axiosInstance.post(`/${conversationId}`, message);
   return resp.data;
 };
 
 export const postMessageToNewConversation = async (
   message: MessageSchemaType
-): Promise<ConversationWithMessages> => {
+): Promise<string> => {
   const resp = await axiosInstance.post("", message);
   return resp.data;
 };
