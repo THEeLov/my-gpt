@@ -3,7 +3,7 @@ import axios from "axios";
 import { SignInData, SignInUser, SignUpUser } from "../types";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000/api/auth",
+  baseURL: "https://my-gpt-backend-mauve.vercel.app/api/auth",
 });
 
 export const signInUser = async (data: SignInUser): Promise<SignInData> => {

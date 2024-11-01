@@ -3,7 +3,7 @@ import { attachAuthHeader } from "../utils/attackAuthHeader";
 import { MessageSchemaType } from "@/validation/zodSchemas";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000/api/messages",
+  baseURL: "https://my-gpt-backend-mauve.vercel.app/api/messages",
 });
 
 attachAuthHeader(axiosInstance);

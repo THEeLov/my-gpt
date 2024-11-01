@@ -3,7 +3,7 @@ import { Conversation, ConversationWithMessages } from "../types";
 import { attachAuthHeader } from "../utils/attackAuthHeader";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000/api/conversations",
+  baseURL: "https://my-gpt-backend-mauve.vercel.app/api/conversations",
 });
 
 attachAuthHeader(axiosInstance);
