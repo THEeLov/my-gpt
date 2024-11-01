@@ -10,6 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { TypingIndicator } from "@minchat/react-chat-ui";
+import { Textarea } from "@/components/ui/textarea"
 
 const MessageForm = () => {
   const { conversationId: openConversationId } = useParams();
@@ -56,8 +57,7 @@ const MessageForm = () => {
           render={({ field }) => (
             <FormItem className="flex-1">
               <FormControl>
-                <Input
-                  type="text"
+                <Textarea
                   placeholder="Message MyGPT"
                   {...field}
                   className="text-background flex-grow"
