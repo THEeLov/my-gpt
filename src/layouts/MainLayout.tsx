@@ -1,4 +1,3 @@
-import Footer from "@/components/app/common/Footer";
 import Navbar from "@/components/app/common/Navbar";
 import useAuthData from "@/hooks/useAuthData";
 import { Navigate, Outlet } from "react-router-dom";
@@ -18,9 +17,6 @@ const MainLayout = () => {
       <main className="flex-grow w-full flex bg-foreground">
         <Outlet />
       </main>
-      <footer className="w-full h-20 bg-transparent navbarfooterBackground">
-        <Footer />
-      </footer>
     </div>
   );
 };
