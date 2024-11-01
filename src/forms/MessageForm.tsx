@@ -40,6 +40,13 @@ const MessageForm = () => {
     form.reset();
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (event.key === 'Enter' && !event.shiftKey) {
+      event.preventDefault();
+      form.handleSubmit(onSubmit)();
+    }
+  };
+
   return (
     <Form {...form}>
       {(pending || isPending) && (
@@ -62,13 +69,14 @@ const MessageForm = () => {
                   {...field}
                   className="text-background flex-grow"
                   autoComplete="off"
+                  onKeyDown={handleKeyDown}
                 />
               </FormControl>
             </FormItem>
           )}
         />
 
-        <Button type="submit" variant="ghost" className="absolute right-3" disabled={!form.formState.isValid}>
+        <Button type="submit" variant="ghost" className="absolute right-3" disabled={!form.formState.isValid || form.formState.isSubmitting}>
           <BsSend style={{width: "24px", height: "24px"}}/>
         </Button>
       </form>
