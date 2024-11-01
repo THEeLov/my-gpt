@@ -10,7 +10,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { TypingIndicator } from "@minchat/react-chat-ui";
 import { Textarea } from "@/components/ui/textarea"
-import SendIcon from "../assets/send-alt-svgrepo-com.svg"
+import { BsSend } from "react-icons/bs";
 
 const MessageForm = () => {
   const { conversationId: openConversationId } = useParams();
@@ -68,8 +68,8 @@ const MessageForm = () => {
           )}
         />
 
-        <Button type="submit" variant="secondary" className="absolute right-3" disabled={!form.formState.isValid}>
-          <img src={SendIcon} className="w-5" />
+        <Button type="submit" variant="ghost" className="absolute right-3" disabled={!form.formState.isValid}>
+          <BsSend style={{width: "24px", height: "24px"}}/>
         </Button>
       </form>
     </Form>
