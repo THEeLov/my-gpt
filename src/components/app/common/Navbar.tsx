@@ -8,9 +8,11 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex flex-col text-center font-size text-5xl select-none flex-grow cursor-pointer" onClick={() => navigate("/")}>
-        <p className="text-background font-black m-0 text-xl">MY</p>
-        <p className="text-background font-black m-0 -mt-3">GPT</p>
+      <div className="flex flex-col text-center font-size text-5xl select-none flex-grow justify-center items-center">
+        <div className="cursor-pointer" onClick={() => navigate("/")}>
+          <p className="text-background font-black m-0 text-xl">MY</p>
+          <p className="text-background font-black m-0 -mt-3">GPT</p>
+        </div>
       </div>
       <div className="absolute right-4">
         <Button type="button" onClick={signOut} variant="secondary">
