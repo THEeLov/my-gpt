@@ -1,9 +1,9 @@
 import useAuthData from "@/hooks/useAuthData";
 import { useUserConversationMessages } from "@/hooks/useConversations";
 import { Spinner } from "@/components/ui/spinner";
-import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
 import { useEffect, useRef } from "react";
+import Markdown from 'markdown-to-jsx'
 
 const ConversationMessages = () => {
   const { user } = useAuthData();
@@ -50,10 +50,10 @@ const ConversationMessages = () => {
               : "chatMessage self-start"
           }`}
         >
-          <ReactMarkdown>{message.message}</ReactMarkdown>
-          <span className="text-sm text-gray-400">
+          <Markdown className="markdown-content">{message.message}</Markdown>
+          <div className="text-sm text-gray-400">
             {new Date(message.createdAt).toLocaleString()}
-          </span>
+          </div>
         </div>
       ))}
     </div>

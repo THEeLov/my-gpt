@@ -161,3 +161,43 @@
 .activeConversation {
   background-color: rgb(61, 61, 61);
 }
+
+.markdown-content {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+/* Header styling */
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3 {
+  font-weight: bold;
+  margin: 0.5em 0;
+  font-size: 1.25em;
+}
+
+/* List styling */
+.markdown-content ul,
+.markdown-content ol {
+  padding-left: 1.5em;
+  margin: 0.5em 0;
+}
+
+.markdown-content li {
+  margin-bottom: 0.3em;
+}
+
+/* Paragraph styling */
+.markdown-content p {
+  margin: 0.5em 0;
+}
+
+/* Preformatted text and code blocks */
+.markdown-content pre,
+.markdown-content code {
+  font-family:monospace;
+  background-color: transparent;
+  padding: 1em;
+  overflow-x: auto;
+}
