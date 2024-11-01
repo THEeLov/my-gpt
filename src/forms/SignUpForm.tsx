@@ -137,7 +137,7 @@ const SignUpForm = () => {
         <Button
           className="w-full"
           variant="secondary"
-          disabled={form.formState.isSubmitting}
+          disabled={form.formState.isSubmitting || !form.formState.isValid}
           onClick={() => form.handleSubmit(onSubmit)}
         >
           SIGN UP
