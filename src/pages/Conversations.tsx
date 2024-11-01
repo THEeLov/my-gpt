@@ -4,7 +4,7 @@ import MessageForm from "@/forms/MessageForm";
 
 const Conversations = () => {
   return (
-    <div className="w-full flex max-h-[calc(100vh-160px)]">
+    <div className="w-full flex max-h-[calc(100vh-80px)]">
       {/* User's list of conversations */}
       <div className="w-96 conversationSidebar h-full">
         <ConversationsSidebar />

@@ -35,7 +35,7 @@ const ConversationMessages = () => {
   }
 
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-10 text-xl">
       {openedConversation!.messages.map((message, index) => (
         <div
           key={message.id}

@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { TypingIndicator } from "@minchat/react-chat-ui";
 import { Textarea } from "@/components/ui/textarea"
+import SendIcon from "../assets/send-alt-svgrepo-com.svg"
 
 const MessageForm = () => {
   const { conversationId: openConversationId } = useParams();
@@ -48,7 +49,7 @@ const MessageForm = () => {
       )}
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex w-3/4 items-center justify-center space-x-2"
+        className="flex w-3/4 items-center justify-center space-x-2 relative"
       >
         <FormField
           control={form.control}
@@ -67,8 +68,8 @@ const MessageForm = () => {
           )}
         />
 
-        <Button type="submit" variant="secondary">
-          Send
+        <Button type="submit" variant="secondary" className="absolute right-3" disabled={!form.formState.isValid}>
+          <img src={SendIcon} className="w-5" />
         </Button>
       </form>
     </Form>
