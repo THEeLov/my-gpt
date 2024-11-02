@@ -44,7 +44,7 @@ const ConversationMessages = () => {
               ? lastMessageRef
               : null
           }
-          className={`p-4 rounded-md max-w-lg mb-2 ${
+          className={`p-4 rounded-md max-w-3xl mb-2 ${
             message.user.id === user!.id
               ? "userMessage self-end"
               : "chatMessage self-start"

@@ -4,6 +4,7 @@ import { MessageSchemaType } from "@/validation/zodSchemas";
 
 const axiosInstance = axios.create({
   baseURL: "https://my-gpt-backend-mauve.vercel.app/api/messages",
+  timeout: 60000
 });
 
 attachAuthHeader(axiosInstance);
