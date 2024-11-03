@@ -3,7 +3,7 @@ import { attachAuthHeader } from "../utils/attackAuthHeader";
 import { MessageSchemaType } from "@/validation/zodSchemas";
 
 const axiosInstance = axios.create({
-  baseURL: "https://my-gpt-backend-mauve.vercel.app/api/messages",
+  baseURL: "https://my-gpt-backend-production.up.railway.app/api/messages",
   timeout: 60000
 });
 
