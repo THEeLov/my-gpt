@@ -28,10 +28,10 @@ const ConversationsSidebar = () => {
       ) : conversations?.length === 0 ? (
         <p>You have no conversations yet.</p>
       ) : (
-        <div className="flex-grow overflow-auto">
+        <div className="flex-grow overflow-auto flex flex-col gap-10">
           {[...groupedConversations.entries()].map(([label, convos]) => (
             <div key={label}>
-              <p className="text-lg font-thin mb-2">{label}</p>
+              <p className="text-lg font-light mb-4">{label}</p>
               {convos.map((conversation) => (
                 <ConversationCard
                   key={conversation.id}
