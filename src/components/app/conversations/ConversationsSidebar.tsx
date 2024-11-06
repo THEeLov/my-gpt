@@ -28,7 +28,7 @@ const ConversationsSidebar = () => {
       ) : conversations?.length === 0 ? (
         <p>You have no conversations yet.</p>
       ) : (
-        <div className="flex-grow overflow-auto flex flex-col gap-10">
+        <div className="flex-grow overflow-auto flex flex-col gap-8">
           {[...groupedConversations.entries()].map(([label, convos]) => (
             <div key={label}>
               <p className="text-lg font-light mb-4">{label}</p>
